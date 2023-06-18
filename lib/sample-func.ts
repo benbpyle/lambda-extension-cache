@@ -32,7 +32,7 @@ export class SampleFunction extends Construct {
         const layer = LayerVersion.fromLayerVersionArn(
             scope,
             "CacheLayer",
-            "arn:aws:lambda:us-west-2:904442064295:layer:lambda-cache-layer:5"
+            "arn:aws:lambda:<region>:<account-id>:layer:<extension-name>:<version>"
         );
 
         const func = new GoFunction(scope, "SampleFunction", {
@@ -54,11 +54,7 @@ export class SampleFunction extends Construct {
             {}
         );
         table.grantReadData(func);
-        const s = Secret.fromSecretNameV2(
-            this,
-            "Secrets",
-            "mo-data-flow-router-cache-token"
-        );
+        const s = Secret.fromSecretNameV2(this, "Secrets", "<secret>");
         s.grantRead(func);
     };
 }

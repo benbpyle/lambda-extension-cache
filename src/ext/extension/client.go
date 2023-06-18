@@ -49,9 +49,9 @@ const (
 	// Shutdown is a shutdown event for the environment
 	Shutdown EventType = "SHUTDOWN"
 
-	extensionNameHeader      = "Lambda-Extension-Name"
-	extensionIdentiferHeader = "Lambda-Extension-Identifier"
-	extensionErrorType       = "Lambda-Extension-Function-Error-Type"
+	extensionNameHeader      = "Lambda-Extension-Cache"
+	extensionIdentiferHeader = "LEC"
+	extensionErrorType       = "LambdaExtensionCacheError"
 )
 
 // Client is a simple client for the Lambda Extensions API
